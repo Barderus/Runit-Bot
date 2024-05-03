@@ -1,0 +1,15 @@
+
+Requirements and Commands
+
+    1. A rule reminder every so often and let people know when they break the rule. -> Add a cooldown to post something
+    (Also adding a command so people can read the rules at any point in time) -> DONE
+
+    2. Add the final bid and product to a database when the auction ends -> DONE
+
+    3. Add a command to show the final bid and product -> DONE
+
+    4. Add a command to display the database using embed-pagination -> (npm install discordjs-button-pagination)
+
+    3. Automating invoice (Shopify API)
+
+    4. prompt when a new user joins the server for the first time that asks them to change their display name -> DONE
