@@ -5,6 +5,7 @@ module.exports = {
         .setName('general-rules')
         .setDescription('Displays general rules.'),
     async execute(interaction) {
+        const isAdmin = interaction.member.roles.cache.some(role => role.name === 'ADMIN');
         const shipEmbed = new EmbedBuilder()
             .setTitle('RUN IT Expo General Rules')
             .setDescription(`**1. Age Requirement:**  You must be 18 years or older to bid or make a purchase.
@@ -33,11 +34,11 @@ module.exports = {
             **9. First-time Participant Deposit:**  
             If your total auction wins reach $500, a $100 deposit is required immediately. This deposit is non-refundable if you decide against paying for your wins.
 
-            ** For a more in-depth rules, please check <#1179161850630377576>
+            ** For a more in-depth rules, please check <#1179161850630377576>**
                            ` )
             .setColor('#0099ff')
             .setTimestamp()
 			                    // For more rules, go to the FAQs channel
-        await interaction.reply({ embeds: [shipEmbed], ephemeral: true });
+            await interaction.reply({ embeds: [shipEmbed], ephemeral: !isAdmin });
     },
 };

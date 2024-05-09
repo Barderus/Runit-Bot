@@ -39,17 +39,4 @@ for (const file of eventFiles) {
 	}
 }
 
-client.on('guildMemberAdd', member => {
-    // Send a welcome message to the new member's direct messages
-	member.send(`
-	**Welcome to the server the RUN IT Server!** 🎉
-	We're glad to have you here.
-	
-	*Make sure that your Discord name is identical to the name entered in the registration form.*
-	
-	**Make sure to read the rules at [Terms of Service Policies](https://runitreptileexpo.com/pages/terms-of-service-policies)!** 📜
-	`);
-	
-});
-
 client.login(token);

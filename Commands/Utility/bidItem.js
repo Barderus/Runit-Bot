@@ -1,8 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
-//const auctionItem = require('../../AuctionItem.js'); 
 const generateUniqueId = require('generate-unique-id');
 const Bids = require("../../itemsDB.js");
-//const bidItem = require('../../AuctionItem.js');
 
 
 const currentDate = new Date();
@@ -44,8 +42,6 @@ module.exports = {
                     { name: 'Live animal', value: 'Live animal' },
                         )),
             
-            
-
 
     async execute(interaction) {
         try {
@@ -56,7 +52,7 @@ module.exports = {
 
             const name = interaction.options.getString('item-name');
             const mentionedName = interaction.options.getMentionable('bidder-name');
-            const bidderName = mentionedName.user.displayName;  
+            const bidderName = mentionedName.user.displayName;
             const quantity = interaction.options.getInteger('quantity');
             const finalBid = interaction.options.getNumber('final-bid');
             const totalCost = quantity * finalBid;
@@ -75,19 +71,14 @@ module.exports = {
 
             });
             
-            //const item = new auctionItem(id, name, bidderName, quantity, finalBid, totalCost, itemDate);
             console.log('New bid:', newBid);
-            be = "Was"
-            if(newBid.quantity > 0){
-                be = "were"
-            }
-            //IGNORE: await dbItem.set(item);
-            await interaction.reply({ content: `${newBid.bidderName} purchased ${newBid.quantity} ${newBid.itemName} for $${newBid.totalCost}. `});
+            
+            await interaction.deferReply();
+            await interaction.editReply({ content: `${newBid.bidderName} purchased ${newBid.quantity} ${newBid.itemName} for $${newBid.totalCost}. `});
         } catch (error) {
             // If there was an error, send an error message
             console.log("Error saving item: ", error)
             await interaction.reply({ content: 'An error occurred while adding the item to the database.', ephemeral: true });
         }
-    },
-    
+    },  
 };

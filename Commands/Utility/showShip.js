@@ -5,6 +5,7 @@ module.exports = {
         .setName('shipping-rules')
         .setDescription('Displays live animal shipping information.'),
     async execute(interaction) {
+        const isAdmin = interaction.member.roles.cache.some(role => role.name === 'ADMIN');
         const shipEmbed = new EmbedBuilder()
             .setTitle('Live Animal Shipping Information')
             .setDescription(
@@ -34,6 +35,6 @@ module.exports = {
             .setColor('#0099ff')
             .setTimestamp();
                     // For more rules, go to the FAQs channel
-        await interaction.reply({ embeds: [shipEmbed], ephemeral: true });
+            await interaction.reply({ embeds: [shipEmbed], ephemeral: !isAdmin });
     },
 };
