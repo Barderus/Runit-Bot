@@ -8,7 +8,11 @@ module.exports = {
         const isAdmin = interaction.member.roles.cache.some(role => role.name === 'ADMIN');
         const shipEmbed = new EmbedBuilder()
             .setTitle('RUN IT Expo General Rules')
-            .setDescription(`**1. Age Requirement:**  You must be 18 years or older to bid or make a purchase.
+            .setDescription(
+            `
+            ** Please, make sure your Discord display name is similar to the name entered in the registration form.**
+            
+            **1. Age Requirement:**  You must be 18 years or older to bid or make a purchase.
             
             **2. Sales Policy:**  
             All sales are final; no returns or exchanges will be accepted.
